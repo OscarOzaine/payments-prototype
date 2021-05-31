@@ -6,22 +6,38 @@ use Illuminate\Support\Str;
 
 class BankPaymentGateway implements PaymentGatewayContract
 {
+    /**
+     * @var int
+     */
     private $currency;
 
+    /**
+     * @var int
+     */
     private $discount;
 
+    /**
+     * @param $currency
+     */
     public function __construct($currency)
     {
         $this->currency = $currency;
         $this->discount = 0;
     }
 
+    /**
+     * @param $amount
+     */
     public function setDiscount($amount)
     {
         $this->discount = $amount;
     }
 
-    public function charge($amount)
+    /**
+     * @param $amount
+     * @return array
+     */
+    public function charge($amount): array
     {
         $fee = $amount * 0.005;
 

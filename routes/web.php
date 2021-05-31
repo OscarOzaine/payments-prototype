@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('pay', '\App\Http\Controllers\PayOrderController@store');
+Route::post('pay', '\App\Http\Controllers\PayOrderController@store');

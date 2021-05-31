@@ -11,6 +11,6 @@ class PayOrderController extends Controller
     {
         $order = $orderDetails->all();
 
-        dd($paymentGateway->charge(2500));
+        return $paymentGateway->charge(2500);
     }
 }
